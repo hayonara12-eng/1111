@@ -190,8 +190,8 @@ export default function App() {
           <div className="flex items-center gap-4">
             <div className="hidden lg:block text-right mr-2">
               <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider leading-none mb-1">24시간 긴급출동 문의</p>
-              <a href="tel:010-0000-0000" className="text-sm font-extrabold text-slate-900 italic hover:text-blue-600 transition-colors">
-                010-0000-0000
+              <a href="tel:010-3016-8897" className="text-sm font-extrabold text-slate-900 italic hover:text-blue-600 transition-colors">
+                010-3016-8897
               </a>
             </div>
             
@@ -199,7 +199,7 @@ export default function App() {
               href="#contact"
               className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold rounded-full hover:bg-blue-700 hover:shadow-lg transition-all duration-200"
             >
-              무료 견적 받기
+              신속 상담서 바로신청
             </a>
 
             <button
@@ -268,11 +268,11 @@ export default function App() {
 
               <div className="mt-4 pt-4 border-t border-slate-200 flex flex-col gap-3">
                 <a
-                  href="tel:010-0000-0000"
+                  href="tel:010-3016-8897"
                   className="w-full bg-blue-600 text-white text-center py-3 rounded-2xl font-bold flex items-center justify-center gap-2 text-sm shadow-md"
                 >
                   <Phone className="w-4 h-4" />
-                  긴급 전화 수리: 010-0000-0000
+                  긴급 전화 수리: 010-3016-8897
                 </a>
               </div>
             </div>
@@ -329,11 +329,11 @@ export default function App() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href="#contact"
+              href="sms:01030168897?body=안녕하세요 좋은설비 상담 문의드립니다."
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-blue-600/30 transition-all flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
-              무료 상담 문의
+              바로 문자 전송
             </a>
 
             <a

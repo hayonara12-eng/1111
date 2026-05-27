@@ -213,7 +213,7 @@ export default function App() {
             className="text-4xl md:text-6xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight"
           >
             막힌 곳은 시원하게 뚫고!<br />
-            <span className="text-blue-400 italic">새는 곳은 확실하게 보수하!</span>
+            <span className="text-blue-400 italic">새는 곳은 확실하게 보수!</span>
           </motion.h2>
 
           <motion.p
@@ -283,19 +283,19 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-block px-3 py-1 bg-blue-50 border border-blue-100 rounded-full mb-4">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-wide">Professional Plumbing Service</span>
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-wide">좋은설비를 찾아주신 고객님께 ! </span>
             </div>
             
             <h3 className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight tracking-tight text-slate-900">
               고객이 가장 걱정하는<br />
-              <span className="text-blue-600">비용과 신뢰</span> 문제부터 해결합니다.
+              <span className="text-blue-600">비용과 신뢰</span> 문제부터 <br /> 해결합니다.
             </h3>
 
             <div className="grid grid-cols-1 gap-4 mt-8">
               {[
                 {
                   title: "합리적이고 일관된 투명 견적",
-                  desc: "임의의 부풀림 요금 청구는 절대 없습니다. 배관 내부 정밀 진단 결과를 고화질 내시경 화면으로 직접 대조해 드린 후, 승인받은 비용으로만 책임 시공합니다.",
+                  desc: "임의의 부풀림 요금 청구는 절대 없습니다.<br /> 배관 내부 정밀 진단 결과를 고화질 내시경 화면으로 직접 대조해 드린 후, 승인받은 비용으로만 책임 시공합니다.",
                   icon: (
                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -304,7 +304,7 @@ export default function App() {
                 },
                 {
                   title: "첨단 누수 탐지 설비",
-                  desc: "마구잡이 타일 철거나 바닥 분쇄는 옛말입니다. 초음파 음향 탐지기와 복합 열화상 카메라를 고수하여 보이지 않는 부위를 정확히 찾아 최소한의 철거로 메웁니다.",
+                  desc: "마구잡이 타일 철거나 바닥 분쇄는 옛말입니다. <br />초음파 음향 탐지기와 복합 열화상 카메라를 고수하여 보이지 않는 부위를 정확히 찾아 최소한의 철거로 메웁니다.",
                   icon: (
                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />

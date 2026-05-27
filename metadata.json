@@ -1,0 +1,6 @@
+{
+  "name": "좋은설비",
+  "description": "하수구 및 누수탐지 전문 좋은설비의 공식 홈페이지입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

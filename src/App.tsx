@@ -77,7 +77,7 @@ export default function App() {
             <div>
               <h1 className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">좋은설비</h1>
               <span className="text-[9px] text-blue-600 font-extrabold uppercase tracking-widest leading-none block mt-1">
-                
+                Professional Plumbing
               </span>
             </div>
           </div>
@@ -222,8 +222,8 @@ export default function App() {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-slate-300 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
           >
-            첨단 배관 초소형 내시경 장비와 무진동 고압세척기로 보이지 않는 원인까지 완벽히 진단합니다.
-            과잉 부풀림 청구 없는 정직하고 투명한 정찰제 수리를 지킵니다.
+            배관 초소형 내시경 장비와 고압세척기로 보이지 않는 원인까지 완벽히 진단합니다.
+            과잉 부풀림 청구 없는 정직하고 투명한 요금 원칙을 지킵니다.
           </motion.p>
 
           <motion.div
@@ -259,10 +259,10 @@ export default function App() {
               <div className="flex-1">
                 <p className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-1">Customer Satisfaction</p>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  이미 수많은 가정과 사업장이 <span className="text-white font-semibold">좋은설비</span>의 첨단 진단을 경험했습니다. <br> 믿음과 신뢰로 보답하겠습니다.
+                  이미 수많은 가정과 사업장이 <span className="text-white font-semibold">좋은설비</span>의 첨단 진단을 경험했습니다.<br />믿음과 신뢰로 보답하겠습니다.
                 </p>
               </div>
-             <div className="flex gap-6 shrink-0">
+              <div className="flex gap-6 shrink-0">
                 <div className="text-center">
                   <p className="text-2xl font-black text-blue-400">100점</p>
                   <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">고객만족점수</p>
@@ -270,7 +270,7 @@ export default function App() {
                 <div className="w-[1px] bg-slate-800 h-10 align-middle self-center"></div>
                 <div className="text-center">
                   <p className="text-2xl font-black text-white">100%</p>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">해결확률 </p>
+                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">해결확률</p>
                 </div>
               </div>
             </div>
@@ -283,19 +283,19 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-block px-3 py-1 bg-blue-50 border border-blue-100 rounded-full mb-4">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-wide"> 찾아주신 고객님께 ! </span>
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-wide">찾아주신 고객님께 !</span>
             </div>
             
             <h3 className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight tracking-tight text-slate-900">
               고객이 가장 걱정하는<br />
-              <span className="text-blue-600">비용과 신뢰</span> 문제부터 <br /> 해결합니다.
+              <span className="text-blue-600">비용과 신뢰</span> 문제부터 <br />해결합니다.
             </h3>
 
             <div className="grid grid-cols-1 gap-4 mt-8">
               {[
                 {
                   title: "합리적이고 일관된 투명 견적",
-                  desc: "임의의 부풀림 요금 청구는 절대 없습니다.<br> 배관 내부 정밀 진단 결과를 고화질 내시경 화면으로 직접 대조해 드린 후, 승인받은 비용으로만 책임 시공합니다.",
+                  desc: "임의의 부풀림 요금 청구는 절대 없습니다.\n배관 내부 정밀 진단 결과를 고화질 내시경 화면으로 직접 대조해 드린 후, 승인받은 비용으로만 책임 시공합니다.",
                   icon: (
                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -304,7 +304,7 @@ export default function App() {
                 },
                 {
                   title: "첨단 누수 탐지 설비",
-                  desc: "마구잡이 타일 철거나 바닥 분쇄는 옛말입니다. <br />초음파 음향 탐지기와 복합 열화상 카메라를 고수하여 보이지 않는 부위를 정확히 찾아 최소한의 철거로 메웁니다.",
+                  desc: "마구잡이 타일 철거나 바닥 분쇄는 옛말입니다.\n초음파 음향 탐지기와 복합 열화상 카메라를 고수하여 보이지 않는 부위를 정확히 찾아 최소한의 철거로 메웁니다.",
                   icon: (
                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -327,7 +327,7 @@ export default function App() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
-                    <p className="text-xs md:text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                    <p className="text-xs md:text-sm text-slate-500 leading-relaxed whitespace-pre-line">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -614,7 +614,7 @@ export default function App() {
 
           <div className="text-xs space-y-2 text-slate-400">
             <p className="font-bold text-white uppercase tracking-wider text-[20px]">연락 및 면허 정보</p>
-            <p> 상담 전화 : <span className="text-white font-bold italic">010-3016-8897</span></p>
+            <p>긴급 상담 전화 : <span className="text-white font-bold italic">010-3016-8897</span></p>
             <p>사업자등록번호: 495-20-02495 | 대표: 좋은설비</p>
             <p className="text-slate-500">Copyright © 2026 좋은설비 Inc. All rights reserved.</p>
           </div>

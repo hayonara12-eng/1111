@@ -27,8 +27,8 @@ export default function App() {
 
   const portfolio = [
     {
-      title: "아파트 빌라 상가 변기 싱크대 화장실하수구 막힘",
-      desc: "고압세척과 내시경 진단으로 원인을 정확하게 파악 후 하수 배수 흐름을 정상화했습니다.",
+      title: "변기 싱크대 화장실 하수구 막힘",
+      desc: "내시경 진단으로 원인을 정확하게 파악 후 하수 배수 흐름을 정상화했습니다.",
       tag: "하수구 막힘",
       image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=600&auto=format&fit=crop",
     },
@@ -406,11 +406,11 @@ export default function App() {
                 <span className="text-xs font-bold text-blue-600">RESOLVED CASES</span>
               </div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-                최근 해결 포트폴리오
+                좋은설비 포트폴리오
               </h3>
             </div>
             <p className="text-slate-500 max-w-xl text-xs md:text-sm leading-relaxed">
-              설비 기사들이 자택과 가맹점 현장에서 최신형 내시경 분석과 정밀 청소를 동반해 해결 완료한 안심 배선 사례입니다.
+              정확한 원인분석과 해결과정
             </p>
           </div>
 

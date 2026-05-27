@@ -337,7 +337,7 @@ export default function App() {
             </a>
 
             <a
-              href="https://open.kakao.com/"
+              href="https://open.kakao.com/o/snl8pCfi"
               target="_blank"
               className="bg-amber-400 hover:bg-amber-500 text-slate-950 px-8 py-4 rounded-xl font-bold shadow-xl shadow-amber-500/10 transition-all flex items-center justify-center gap-2"
               rel="noreferrer"
@@ -730,7 +730,7 @@ export default function App() {
 
               {/* Kakao Button with amber coloring */}
               <a
-                href="https://open.kakao.com/"
+                href="https://open.kakao.com/o/snl8pCfi"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full text-center bg-amber-400 hover:bg-amber-500 text-slate-950 rounded-xl py-4 text-sm font-bold transition duration-150 shadow-xl flex items-center justify-center gap-2"

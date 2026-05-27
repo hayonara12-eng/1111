@@ -77,7 +77,7 @@ export default function App() {
             <div>
               <h1 className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">좋은설비</h1>
               <span className="text-[9px] text-blue-600 font-extrabold uppercase tracking-widest leading-none block mt-1">
-                건축기사 자격증 보유 사업자
+                
               </span>
             </div>
           </div>

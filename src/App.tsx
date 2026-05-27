@@ -299,7 +299,7 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 text-blue-300 rounded-full text-xs font-bold tracking-wider mb-6"
           >
-            24시간 국가 기술 공인 출동 대기 서비스
+            24시간 하수구막힘 / 변기막힘 / 싱크대막힘 / 누수탐지 출동 대기 서비스
           </motion.div>
 
           <motion.h2

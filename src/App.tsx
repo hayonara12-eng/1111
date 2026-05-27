@@ -201,7 +201,7 @@ export default function App() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 text-blue-300 rounded-full text-xs font-bold tracking-wider mb-6"
+            className="inline-block px-6 py-2.5 md:px-8 md:py-3 bg-blue-500/15 border border-blue-500/30 text-blue-200 rounded-full text-xs sm:text-sm md:text-base font-extrabold tracking-wide mb-8 shadow-lg shadow-blue-500/5"
           >
             24시간 하수구막힘 / 변기막힘 / 싱크대막힘 / 누수탐지 출동 대기 서비스
           </motion.div>
@@ -212,8 +212,8 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-4xl md:text-6xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight"
           >
-            막힌 곳은 시원하게,<br />
-            <span className="text-blue-400 italic">새는 곳은 확실하게.</span>
+            막힌 곳은 시원하게 뚫고!<br />
+            <span className="text-blue-400 italic">새는 곳은 확실하게 보수하!</span>
           </motion.h2>
 
           <motion.p

@@ -77,7 +77,7 @@ export default function App() {
             <div>
               <h1 className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">좋은설비</h1>
               <span className="text-[9px] text-blue-600 font-extrabold uppercase tracking-widest leading-none block mt-1">
-                Professional Plumbing
+                건축기사 국가자격증 보유
               </span>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function App() {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-slate-300 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
           >
-            배관 초소형 내시경 장비와 고압세척기로 보이지 않는 원인까지 완벽히 진단합니다.
+            배관 초소형 내시경 장비와 고압세척기로 보이지 않는 원인까지 완벽하게 진단합니다.
             과잉 부풀림 청구 없는 정직하고 투명한 요금 원칙을 지킵니다.
           </motion.p>
 
@@ -561,7 +561,7 @@ export default function App() {
                 <div>
                   <h4 className="text-base font-bold mb-1">다이렉트 무료 전화 연결</h4>
                   <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-3">
-                    지체될 시간이 없는 급박한 누수나 배관 오염 발생 시 전면 무상 유선 상담이 가능합니다.
+                    지체될 시간이 없는 급박한 누수나 배관 막힘 발생 시 전면 무상 유/무선 상담이 가능합니다.
                   </p>
                   <a
                     href="tel:010-3016-8897"
@@ -608,7 +608,7 @@ export default function App() {
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Certified Professional Plumbing & Fluid Solution Contractor.<br />
-              국가 보증 규격을 따르며 책임 지고 문제를 해결하겠습니다.
+              국가 배관보증 규격을 따르며 책임 지고 문제를 해결하겠습니다.
             </p>
           </div>
 

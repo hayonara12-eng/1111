@@ -3,39 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, FormEvent } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Phone,
   Check,
-  MapPin,
   Menu,
   X,
   ChevronDown,
   Wrench,
   Shield,
-  Search,
-  Sparkles,
   Send,
-  Award,
   Clock,
-  ThumbsUp,
-  User,
   MessageSquare,
-  ClipboardCheck,
-  Activity,
-  FileCheck,
 } from "lucide-react";
-
-interface Inquiry {
-  id: string;
-  name: string;
-  phone: string;
-  address: string;
-  desc: string;
-  date: string;
-  status: "접수완료" | "유선상담대기" | "출장배정중";
-}
 
 export default function App() {
   // Mobile menu state
@@ -43,33 +24,6 @@ export default function App() {
 
   // Active FAQ state (holds the expanded FAQ index, or null)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-
-  // Form states
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [desc, setDesc] = useState("");
-  
-  // Submit actions states
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [submittedInquiry, setSubmittedInquiry] = useState<Inquiry | null>(null);
-  
-  // Local storage inquiry list for user interactivity
-  const [inquiries, setInquiries] = useState<Inquiry[]>([]);
-  const [showHistory, setShowHistory] = useState(false);
-
-  // Hydrate previous inquiries from localStorage on load
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("plumbing_inquiries");
-      if (saved) {
-        setInquiries(JSON.parse(saved));
-      }
-    } catch (e) {
-      console.error("Local storage error:", e);
-    }
-  }, []);
 
   const portfolio = [
     {
@@ -111,57 +65,6 @@ export default function App() {
     },
   ];
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !phone.trim() || !address.trim()) {
-      alert("이름, 연락처, 주소는 필수 입력 사항입니다.");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    // Simulate network delay
-    setTimeout(() => {
-      const newInquiry: Inquiry = {
-        id: Math.random().toString(36).substring(2, 9).toUpperCase(),
-        name,
-        phone,
-        address,
-        desc: desc || "상담 신청 드립니다.",
-        date: new Date().toLocaleString("ko-KR", { hour12: false }),
-        status: "접수완료",
-      };
-
-      const updated = [newInquiry, ...inquiries];
-      setInquiries(updated);
-      try {
-        localStorage.setItem("plumbing_inquiries", JSON.stringify(updated));
-      } catch (err) {
-        console.error("Local storage save error:", err);
-      }
-
-      setSubmittedInquiry(newInquiry);
-      setIsSubmitting(false);
-      setShowSuccessModal(true);
-
-      // Clean inputs
-      setName("");
-      setPhone("");
-      setAddress("");
-      setDesc("");
-    }, 900);
-  };
-
-  const handleDeleteInquiry = (id: string) => {
-    const filtered = inquiries.filter((item) => item.id !== id);
-    setInquiries(filtered);
-    try {
-      localStorage.setItem("plumbing_inquiries", JSON.stringify(filtered));
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-600 selection:text-white antialiased">
       {/* Header */}
@@ -184,7 +87,7 @@ export default function App() {
             <a href="#process" className="hover:text-blue-600 transition-colors duration-200">작업과정</a>
             <a href="#portfolio" className="hover:text-blue-600 transition-colors duration-200">해결사례</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors duration-200">자주묻는질문</a>
-            <a href="#contact" className="hover:text-blue-600 transition-colors duration-200">견적문의</a>
+            <a href="#contact" className="hover:text-blue-600 transition-colors duration-200">상담문의</a>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -196,10 +99,11 @@ export default function App() {
             </div>
             
             <a
-              href="#contact"
-              className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold rounded-full hover:bg-blue-700 hover:shadow-lg transition-all duration-200"
+              href="tel:010-3016-8897"
+              className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold rounded-full hover:bg-blue-700 hover:shadow-lg transition-all duration-200 flex items-center gap-1.5"
             >
-              신속 상담서 바로신청
+              <Phone className="w-3.5 h-3.5" />
+              전화 연결하기
             </a>
 
             <button
@@ -262,7 +166,7 @@ export default function App() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2.5 flex items-center justify-between text-base text-blue-600"
               >
-                <span>견적문의</span>
+                <span>상담문의</span>
                 <ChevronDown className="w-4 h-4 -rotate-90 text-blue-600" />
               </a>
 
@@ -348,7 +252,7 @@ export default function App() {
           </motion.div>
         </div>
 
-        {/* Elegant design client trust bar (from Design HTML) */}
+        {/* Elegant design client trust bar */}
         <div className="absolute bottom-6 left-0 w-full z-20 hidden md:block">
           <div className="max-w-4xl mx-auto px-6">
             <div className="flex items-center gap-10 p-6 bg-slate-900/90 backdrop-blur-md rounded-2xl text-white shadow-2xl border border-slate-800">
@@ -358,15 +262,15 @@ export default function App() {
                   이미 수많은 가정과 사업장이 <span className="text-white font-semibold">좋은설비</span>의 첨단 진단을 경험했습니다.
                 </p>
               </div>
-              <div className="flex gap-6 shrink-0">
+             <div className="flex gap-6 shrink-0">
                 <div className="text-center">
-                  <p className="text-2xl font-black text-blue-400">5.0</p>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Rating</p>
+                  <p className="text-2xl font-black text-blue-400">100점</p>
+                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">고객만족점수</p>
                 </div>
                 <div className="w-[1px] bg-slate-800 h-10 align-middle self-center"></div>
                 <div className="text-center">
-                  <p className="text-2xl font-black text-white">1.8k+</p>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Projects</p>
+                  <p className="text-2xl font-black text-white">100%</p>
+                  <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">해결확률 </p>
                 </div>
               </div>
             </div>
@@ -374,7 +278,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* About / Why Us Section - Styled beautifully to match Professional Polish aesthetic */}
+      {/* About / Why Us Section */}
       <section id="about" className="py-24 md:py-32 px-6 bg-[#F8FAFC] scroll-mt-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -399,7 +303,7 @@ export default function App() {
                   ),
                 },
                 {
-                  title: "첨단 비파괴 누수 탐지 설비",
+                  title: "첨단 누수 탐지 설비",
                   desc: "마구잡이 타일 철거나 바닥 분쇄는 옛말입니다. 초음파 음향 탐지기와 복합 열화상 카메라를 고수하여 보이지 않는 부위를 정확히 찾아 최소한의 철거로 메웁니다.",
                   icon: (
                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -442,7 +346,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Progress Section */}
+      {/* Process Section */}
       <section id="process" className="py-24 md:py-32 px-6 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-block px-3 py-1 bg-blue-50 border border-blue-100 rounded-full mb-3">
@@ -493,7 +397,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Portfolio Resolver Section - Styled to match "Right Side / Recent Cases" look with a responsive flex grid */}
+      {/* Portfolio Resolver Section */}
       <section id="portfolio" className="py-24 md:py-32 px-6 bg-[#F8FAFC] scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
@@ -598,7 +502,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact Form & inquiry persistence with extreme polish design */}
+      {/* Clean Call to Action / Contact Center Section without the registration form */}
       <section id="contact" className="py-24 md:py-32 px-6 bg-slate-950 text-white relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 opacity-10">
           <img
@@ -609,192 +513,90 @@ export default function App() {
           />
         </div>
 
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-bold rounded-full mb-3 tracking-wider">
-              ONLINE REQUEST CONTRACT
-            </span>
-            <h3 className="text-3xl md:text-5xl font-extrabold mb-5 tracking-tight">
-              간단 온라인 문의 등록
-            </h3>
-            <p className="text-slate-300 text-xs md:text-sm max-w-2xl mx-auto">
-              자택의 막힘 또는 미세 누수 증상을 남겨주시면, 공인 엔지니어가 접수 즉시 직접 전화를 드려 긴급 방문 일시를 잡습니다.
-            </p>
+        <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <span className="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-bold rounded-full mb-3 tracking-wider">
+            24 HOURS RAPID SERVICE
+          </span>
+          <h3 className="text-3xl md:text-5xl font-extrabold mb-5 tracking-tight">
+            신속한 상담 및 수리 예약
+          </h3>
+          <p className="text-slate-300 text-xs md:text-sm max-w-2xl mx-auto mb-16">
+            하수구 고장이나 급격한 누수 상황이 발생하셨나요? 주저없이 좋은설비 전문가에게 전화를 주시거나 카카오톡 및 문자를 남겨주시면 즉각적으로 확인해 드립니다.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left [&>*]:backdrop-blur">
+            <div className="bg-white/[0.03] border border-white/10 rounded-[1.5rem] p-6 hover:bg-white/[0.05] transition-all duration-300">
+              <div className="flex gap-4 items-start">
+                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 shrink-0">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold mb-1">24시간 신속 기사배치</h4>
+                  <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
+                    변기 및 하수구 막힘 접수시 접수자 기준 인근 30분 ~ 1시간 이내로 우선 투입 지령이 자동 배치됩니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/[0.03] border border-white/10 rounded-[1.5rem] p-6 hover:bg-white/[0.05] transition-all duration-300">
+              <div className="flex gap-4 items-start">
+                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 shrink-0">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold mb-1">손상 부위 책임 지원</h4>
+                  <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
+                    작업하는 도중이나 보수 수선 등 어떠한 트러블도 성실히 책임지고 기적 원상복구 해드립니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/[0.03] border border-white/10 rounded-[1.5rem] p-6 hover:bg-white/[0.05] transition-all duration-300 md:col-span-2 lg:col-span-1">
+              <div className="flex gap-4 items-start">
+                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold mb-1">다이렉트 무료 전화 연결</h4>
+                  <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-3">
+                    지체될 시간이 없는 급박한 누수나 배관 오염 발생 시 전면 무상 유선 상담이 가능합니다.
+                  </p>
+                  <a
+                    href="tel:010-3016-8897"
+                    className="inline-block text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    010-3016-8897로 전화하기 &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
-            {/* Form */}
-            <div className="bg-white/[0.04] border border-white/10 rounded-[2rem] p-8 backdrop-blur-md shadow-2xl">
-              <h4 className="text-lg font-bold mb-6 flex items-center gap-2 text-white">
-                <span className="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse" />
-                신속 상담서 신청
-              </h4>
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+            <a
+              href="sms:01030168897?body=안녕하세요 좋은설비 상담 문의드립니다.(주소와 문제사항을 알려주시면 빠른 상담이 가능합니다)"
+              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl text-sm font-bold transition duration-150 shadow-xl flex items-center justify-center gap-2"
+            >
+              <Send className="w-4 h-4" />
+              문자 메시지로 빠른 상담
+            </a>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-xs text-slate-400 font-bold mb-2">성함 또는 부명 *</label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="예) 홍길동"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 outline-none focus:border-blue-500 text-white placeholder-slate-500 transition duration-150 text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs text-slate-400 font-bold mb-2">연락 가능한 번호 *</label>
-                  <input
-                    type="tel"
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="예) 010-1234-5678"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 outline-none focus:border-blue-500 text-white placeholder-slate-500 transition duration-150 text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs text-slate-400 font-bold mb-2">출동 희망지 주소 *</label>
-                  <input
-                    type="text"
-                    required
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder="예) 서울 마포구 독막로 123"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 outline-none focus:border-blue-500 text-white placeholder-slate-500 transition duration-150 text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs text-slate-400 font-bold mb-2">현장 고장 상세 내용 (선택)</label>
-                  <textarea
-                    rows={3}
-                    value={desc}
-                    onChange={(e) => setDesc(e.target.value)}
-                    placeholder="예) 싱크대 개수대 안에서 물이 시원하게 빠지지 않고, 악취가 강하게 역상하고 있습니다."
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 outline-none focus:border-blue-500 text-white placeholder-slate-500 transition duration-150 text-sm resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white text-sm font-bold transition-all rounded-xl py-4 hover:shadow-lg hover:shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer mt-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      상담 신청 전송 중...
-                    </>
-                  ) : (
-                    <>
-                      <ClipboardCheck className="w-4 h-4" />
-                      온라인 안심 견적 신청서 제출
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-
-            {/* Info cards + Live persistence list */}
-            <div className="space-y-6">
-              <div className="bg-white/[0.03] border border-white/10 rounded-[1.5rem] p-6 backdrop-blur">
-                <div className="flex gap-4">
-                  <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 shrink-0">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-bold mb-1">24시간 신속 기사배치</h4>
-                    <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
-                      변기 및 하수구 막힘 접수시 접수자 기준 인근 30분 ~ 1시간 이내로 우선 투입 지령이 자동 배치됩니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/[0.03] border border-white/10 rounded-[1.5rem] p-6 backdrop-blur">
-                <div className="flex gap-4">
-                  <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 shrink-0">
-                    <Shield className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-bold mb-1">손상 부위 책임 지원</h4>
-                    <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
-                      작업하는 도중이나 보수 수선 등 어떠한 트러블도 원상복구 해드립니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Kakao Button with amber coloring */}
-              <a
-                href="https://open.kakao.com/o/snl8pCfi"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full text-center bg-amber-400 hover:bg-amber-500 text-slate-950 rounded-xl py-4 text-sm font-bold transition duration-150 shadow-xl flex items-center justify-center gap-2"
-              >
-                <MessageSquare className="w-4 h-4 fill-current text-slate-950" />
-                카카오톡으로 빠른 실시간 문자 대화하기
-              </a>
-
-              {/* Interactive Inquiries Live History list */}
-              {inquiries.length > 0 && (
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                  <button
-                    onClick={() => setShowHistory(!showHistory)}
-                    className="w-full flex items-center justify-between font-bold text-xs text-slate-300 hover:text-white transition"
-                  >
-                    <span className="flex items-center gap-2">
-                      <User className="w-3.5 h-3.5 text-blue-400" />
-                      내가 접수한 견적 내역 ({inquiries.length}건)
-                    </span>
-                    <span className="text-xs text-blue-400 underline decoration-dotted font-medium">
-                      {showHistory ? "접기" : "자세히 보기"}
-                    </span>
-                  </button>
-
-                  <AnimatePresence>
-                    {showHistory && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="mt-4 space-y-3 max-h-56 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-800"
-                      >
-                        {inquiries.map((item) => (
-                          <div key={item.id} className="bg-slate-950/50 border border-slate-800 rounded-xl p-4 text-xs">
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="font-bold text-slate-200">{item.name} 고객 접수</span>
-                              <span className="bg-blue-500/10 text-blue-300 px-2 py-0.5 rounded text-[10px] font-bold">
-                                {item.status}
-                              </span>
-                            </div>
-                            <p className="text-slate-400 mb-1"><strong className="text-slate-300 font-bold">희망 주소:</strong> {item.address}</p>
-                            <p className="text-slate-400 line-clamp-1"><strong className="text-slate-300 font-bold">고장 증상:</strong> {item.desc}</p>
-                            <div className="flex justify-between items-center mt-2.5 pt-2 border-t border-slate-900 text-[10px] text-slate-500">
-                              <span>접수일: {item.date}</span>
-                              <button
-                                onClick={() => handleDeleteInquiry(item.id)}
-                                className="text-red-400 hover:text-red-300 font-semibold"
-                              >
-                                접수 철회
-                              </button>
-                            </div>
-                          </div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              )}
-            </div>
+            <a
+              href="https://open.kakao.com/o/snl8pCfi"
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 bg-amber-400 hover:bg-amber-500 text-slate-950 rounded-xl py-4 text-sm font-bold transition duration-150 shadow-xl flex items-center justify-center gap-2"
+            >
+              <MessageSquare className="w-4 h-4 fill-current text-slate-950" />
+              카카오톡 실시간 문자 대화
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Footer (Matches Design HTML Social Trust Footer) */}
+      {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8 items-start md:items-center">
           <div className="space-y-3">
@@ -806,14 +608,13 @@ export default function App() {
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Certified Professional Plumbing & Fluid Solution Contractor.<br />
-              국가 보증 규격을 따르며 책임 지고 문제를 해결하겠습니다.<br />
-              <br />
+              국가 보증 규격을 따르며 책임 지고 문제를 해결하겠습니다.
             </p>
           </div>
 
           <div className="text-xs space-y-2 text-slate-400">
             <p className="font-bold text-white uppercase tracking-wider text-[20px]">연락 및 면허 정보</p>
-            <p>긴급 상담 전화 : <span className="text-white font-bold italic">010-3016-8897</span></p>
+            <p> 상담 전화 : <span className="text-white font-bold italic">010-3016-8897</span></p>
             <p>사업자등록번호: 495-20-02495 | 대표: 좋은설비</p>
             <p className="text-slate-500">Copyright © 2026 좋은설비 Inc. All rights reserved.</p>
           </div>
@@ -828,67 +629,6 @@ export default function App() {
           </div>
         </div>
       </footer>
-
-      {/* Success Modal - styled cleanly with high contrast and precision details */}
-      <AnimatePresence>
-        {showSuccessModal && submittedInquiry && (
-          <div className="fixed inset-0 bg-slate-950/80 flex items-center justify-center p-6 z-50 backdrop-blur-sm">
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-3xl p-8 max-w-md w-full relative border border-slate-200 shadow-2xl text-slate-900"
-            >
-              <button
-                onClick={() => setShowSuccessModal(false)}
-                className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-xl transition"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8" />
-                </div>
-                <h3 className="text-2xl font-black text-slate-900 tracking-tight">상담 접수 완료</h3>
-                <p className="text-xs text-blue-600 font-bold uppercase tracking-wider mt-1">Request Successfully Received</p>
-              </div>
-
-              <div className="bg-[#F8FAFC] rounded-2xl p-5 text-xs space-y-3.5 mb-6 border border-slate-100">
-                <div className="flex justify-between border-b border-slate-200/60 pb-2">
-                  <span className="text-slate-400 font-bold uppercase">관리 번호</span>
-                  <span className="font-mono font-bold text-blue-600">{submittedInquiry.id}</span>
-                </div>
-                <div className="flex justify-between border-b border-slate-200/60 pb-2">
-                  <span className="text-slate-400 font-semibold">고객명</span>
-                  <span className="font-bold text-slate-950">{submittedInquiry.name}</span>
-                </div>
-                <div className="flex justify-between border-b border-slate-200/60 pb-2">
-                  <span className="text-slate-400 font-semibold">연락처</span>
-                  <span className="font-bold text-slate-950">{submittedInquiry.phone}</span>
-                </div>
-                <div>
-                  <span className="text-slate-400 font-semibold block mb-1">출동 주소</span>
-                  <span className="font-normal text-slate-800 bg-white p-2.5 rounded-lg border border-slate-200 block leading-relaxed">
-                    {submittedInquiry.address}
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-[11px] text-slate-500 text-center leading-relaxed">
-                현재 원격 관제실에서 가장 가까운 현장 기사에게 긴급 방문 오더가 배정되고 있습니다. 등록해 주신 장소로 기사가 무상 유선 점검 전화를 드리오니, 잠시 전화를 기다려 주십시오.
-              </p>
-
-              <button
-                onClick={() => setShowSuccessModal(false)}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all duration-150 mt-6 cursor-pointer"
-              >
-                상담 예약 확인 완료
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

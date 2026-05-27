@@ -27,20 +27,20 @@ export default function App() {
 
   const portfolio = [
     {
-      title: "아파트 빌라 욕실 하수구 막힘",
+      title: "아파트 빌라 상가 변기 싱크대 화장실하수구 막힘",
       desc: "고압세척과 내시경 진단으로 원인을 정확하게 파악 후 하수 배수 흐름을 정상화했습니다.",
       tag: "하수구 막힘",
       image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=600&auto=format&fit=crop",
     },
     {
-      title: "빌라 누수 탐지 및 배관 수리",
+      title: "누수 탐지 및 배관 수리",
       desc: "벽면 내부 누수를 철저하게 탐지하여 누수 부품을 교체하고 최소한의 타일 철거로 깔끔히 복구했습니다.",
       tag: "누수 탐지",
       image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop",
     },
     {
-      title: "상가 악취 및 배수 문제 해결",
-      desc: "노후 배관 내부의 음식물 잔여물과 모래를 초고압 제트로 세정 완료하여 오염과 악취를 완전히 박멸했습니다.",
+      title: "악취 및 배수 문제 해결",
+      desc: "노후 배관 내부의 음식물 잔여물과 슬러지를 고압 장비로 세정 완료하여 오염과 악취를 완전히 박멸했습니다.",
       tag: "고압 세척",
       image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop",
     },

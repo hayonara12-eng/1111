@@ -17,6 +17,7 @@ import {
   Clock,
   MessageSquare,
 } from "lucide-react";
+import ReviewTicker from "./components/ReviewTicker";
 
 export default function App() {
   // Mobile menu state
@@ -27,22 +28,46 @@ export default function App() {
 
   const portfolio = [
     {
-      title: "변기 싱크대 화장실 하수구 막힘",
-      desc: "내시경 진단으로 원인을 정확하게 파악 후 하수 배수 흐름을 정상화했습니다.",
+      title: "아파트 빌라 욕실 하수구 막힘",
+      desc: "고압세척과 내시경 진단으로 원인을 정확하게 파악 후 하수 배수 흐름을 정상화했습니다.",
       tag: "하수구 막힘",
-      image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=600&auto=format&fit=crop",
+      image: "/1.jpg",
+      fallback: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=600&auto=format&fit=crop",
     },
     {
-      title: "누수 탐지 및 배관 수리",
+      title: "빌라 누수 탐지 및 배관 수리",
       desc: "벽면 내부 누수를 철저하게 탐지하여 누수 부품을 교체하고 최소한의 타일 철거로 깔끔히 복구했습니다.",
       tag: "누수 탐지",
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop",
+      image: "/2.jpg",
+      fallback: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop",
     },
     {
-      title: "악취 및 배수 문제 해결",
-      desc: "노후 배관 내부의 음식물 잔여물과 슬러지를 고압 장비로 세정 완료하여 오염과 악취를 완전히 박멸했습니다.",
+      title: "상가 악취 및 배수 문제 해결",
+      desc: "노후 배관 내부의 음식물 잔여물과 모래를 초고압 제트로 세정 완료하여 오염과 악취를 완전히 박멸했습니다.",
       tag: "고압 세척",
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop",
+      image: "/3.jpg",
+      fallback: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop",
+    },
+    {
+      title: "아파트 변기 막힘 및 부속 교체",
+      desc: "변기 내부 이물질 및 노후화된 필밸브를 고성능 부품으로 교체하여 확실하게 통수 처리하고 누수 문제를 완전히 방지했습니다.",
+      tag: "변기 막힘",
+      image: "/4.jpg",
+      fallback: "https://images.unsplash.com/photo-1542013936693-8848e5744a9b?q=80&w=600&auto=format&fit=crop",
+    },
+    {
+      title: "주방 싱크대 역류 예방 및 배관 통수",
+      desc: "싱크대 하부 관찰 및 기름 슬러지 분쇄 특수 작업을 통해 음식물 막힘으로 인한 역류와 고질적인 악취를 완벽하게 차단했습니다.",
+      tag: "싱크대 막힘",
+      image: "/5.jpg",
+      fallback: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop",
+    },
+    {
+      title: "빌딩 메인 하수관 정밀 고압세척",
+      desc: "건물 전체 배수가 원활하지 않던 메인 하수 배관을 고압 분사 세척 및 고화질 내시경 동행 검사로 축적된 오물을 뿌리째 제거했습니다.",
+      tag: "고압 세척",
+      image: "/6.jpg",
+      fallback: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&auto=format&fit=crop",
     },
   ];
 
@@ -77,7 +102,7 @@ export default function App() {
             <div>
               <h1 className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">좋은설비</h1>
               <span className="text-[9px] text-blue-600 font-extrabold uppercase tracking-widest leading-none block mt-1">
-                건축기사 국가자격증 보유
+                Professional Plumbing
               </span>
             </div>
           </div>
@@ -222,8 +247,8 @@ export default function App() {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-slate-300 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
           >
-            배관 초소형 내시경 장비와 고압세척기로 보이지 않는 원인까지 완벽하게 진단합니다.
-            과잉 부풀림 청구 없는 정직하고 투명한 요금 원칙을 지킵니다.
+            첨단 배관 초소형 내시경 장비와 무진동 고압세척기로 보이지 않는 원인까지 완벽히 진단합니다.
+            과잉 부풀림 청구 없는 정직하고 투명한 정찰제 수리를 지킵니다.
           </motion.p>
 
           <motion.div
@@ -336,12 +361,7 @@ export default function App() {
 
           <div className="relative">
             <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600/30 to-sky-400/20 rounded-[2.5rem] blur-xl opacity-40" />
-            <img
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1887&auto=format&fit=crop"
-              alt="설비 정밀 작업"
-              className="relative rounded-[2rem] shadow-2xl object-cover h-[450px] md:h-[580px] w-full"
-              referrerPolicy="no-referrer"
-            />
+            <ReviewTicker />
           </div>
         </div>
       </section>
@@ -406,11 +426,11 @@ export default function App() {
                 <span className="text-xs font-bold text-blue-600">RESOLVED CASES</span>
               </div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-                좋은설비 포트폴리오
+                최근 해결 포트폴리오
               </h3>
             </div>
             <p className="text-slate-500 max-w-xl text-xs md:text-sm leading-relaxed">
-              정확한 원인분석과 해결과정
+              설비 기사들이 자택과 가맹점 현장에서 최신형 내시경 분석과 정밀 청소를 동반해 해결 완료한 안심 배선 사례입니다.
             </p>
           </div>
 
@@ -426,6 +446,10 @@ export default function App() {
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = item.fallback;
+                      e.currentTarget.onerror = null;
+                    }}
                   />
                   <span className="absolute top-4 left-4 bg-slate-900/95 backdrop-blur text-white text-[11px] font-bold px-3 py-1 rounded-lg">
                     {item.tag}
@@ -561,7 +585,7 @@ export default function App() {
                 <div>
                   <h4 className="text-base font-bold mb-1">다이렉트 무료 전화 연결</h4>
                   <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-3">
-                    지체될 시간이 없는 급박한 누수나 배관 막힘 발생 시 전면 무상 유/무선 상담이 가능합니다.
+                    지체될 시간이 없는 급박한 누수나 배관 오염 발생 시 전면 무상 유선 상담이 가능합니다.
                   </p>
                   <a
                     href="tel:010-3016-8897"
@@ -608,7 +632,7 @@ export default function App() {
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Certified Professional Plumbing & Fluid Solution Contractor.<br />
-              국가 배관보증 규격을 따르며 책임 지고 문제를 해결하겠습니다.
+              국가 보증 규격을 따르며 책임 지고 문제를 해결하겠습니다.
             </p>
           </div>
 
